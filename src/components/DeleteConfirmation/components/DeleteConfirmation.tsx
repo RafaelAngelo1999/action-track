@@ -9,9 +9,15 @@ import {
 } from "@mui/material";
 import WarningIcon from "@mui/icons-material/Warning";
 
-const DeleteConfirmation = ({ open, onClose, onDelete, responsible }) => {
+const DeleteConfirmation = ({
+  open,
+  onClose,
+  onDelete,
+  itemId,
+  itemDescription,
+}) => {
   const handleDelete = () => {
-    onDelete(responsible.id);
+    onDelete(itemId);
     onClose();
   };
 
@@ -21,7 +27,7 @@ const DeleteConfirmation = ({ open, onClose, onDelete, responsible }) => {
       <DialogContent>
         <WarningIcon color="error" style={{ fontSize: 40 }} />
         <Typography variant="body1" style={{ marginTop: 10 }}>
-          Are you sure you want to delete this reponsible?
+          Are you sure you want to delete this {itemDescription}?
         </Typography>
       </DialogContent>
       <DialogActions>
