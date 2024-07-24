@@ -4,15 +4,18 @@ import { Card, Divider } from "@mui/material";
 import ActionCardHeader from "./ActionCardHeader";
 import ActionCardContent from "./ActionCardContent";
 import ActionCardFooter from "./ActionCardFooter";
+import ActionCardProgress from "./ActionCardProgress";
 
 const ActionCard = () => {
   return (
     <>
-      <Card sx={{ maxWidth: 350 }}>
+      <Card sx={{ maxWidth: 350 }} sx={{ marginX: "8px" }}>
         <ActionCardHeader />
-        <Divider />
+        <Divider light />
         <ActionCardContent />
-        <Divider />
+        <Divider light />
+        <ActionCardProgress />
+        <Divider light />
         <ActionCardFooter />
       </Card>
     </>
