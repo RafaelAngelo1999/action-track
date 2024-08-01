@@ -68,7 +68,7 @@ const AppBarHeader = () => {
             <Settings onClick={handleToogleModal} />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Criar Task AzureDevOps
+            Action Track 🚀
           </Typography>
           <IconButton
             size="large"

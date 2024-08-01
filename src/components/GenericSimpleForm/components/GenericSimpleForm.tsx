@@ -15,7 +15,7 @@ const GenericSimpleForm = ({
   open,
   onClose,
   onSubmit,
-  responsible,
+  entity,
   schema,
   defaultValues,
 }) => {
@@ -26,14 +26,14 @@ const GenericSimpleForm = ({
     reset,
   } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: responsible ? responsible : defaultValues,
+    defaultValues: entity ? entity : defaultValues,
   });
 
   useEffect(() => {
-    reset(responsible);
-  }, [responsible, reset]);
+    reset(entity);
+  }, [entity, reset]);
 
-  const isEditing = !!responsible;
+  const isEditing = !!entity;
 
   return (
     <Drawer anchor="right" open={open} onClose={onClose}>
@@ -42,7 +42,7 @@ const GenericSimpleForm = ({
         onSubmit={handleSubmit(onSubmit)}
         sx={{ margin: 2, width: 300 }}
       >
-        <FormLabel>Add New Responsible</FormLabel>
+        <FormLabel>Add New Entity</FormLabel>
         <Controller
           name="name"
           control={control}
@@ -60,7 +60,7 @@ const GenericSimpleForm = ({
         <Controller
           name="active"
           control={control}
-          defaultValue={isEditing ? responsible.active : true}
+          defaultValue={isEditing ? entity.active : true}
           render={({ field }) => (
             <FormControlLabel
               control={

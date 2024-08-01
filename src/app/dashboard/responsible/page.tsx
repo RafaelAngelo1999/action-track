@@ -29,16 +29,15 @@ const ResponsibleList = () => {
   }, []);
 
   useEffect(() => {
-    if (!drawerEditOpen) {
-      setEditingResponsible(null);
-    }
-  }, [drawerEditOpen]);
+    const resetStateIfDrawerClosed = (drawerOpen, setState) => {
+      if (!drawerOpen) {
+        setState(null);
+      }
+    };
 
-  useEffect(() => {
-    if (!drawerDeleteOpen) {
-      setDeletingResponsible(null);
-    }
-  }, [drawerDeleteOpen]);
+    resetStateIfDrawerClosed(drawerEditOpen, setEditingResponsible);
+    resetStateIfDrawerClosed(drawerDeleteOpen, setDeletingResponsible);
+  }, [drawerEditOpen, drawerDeleteOpen]);
 
   const handleMaintenance = async (data) => {
     const isEditing = !!editingResponsible;
